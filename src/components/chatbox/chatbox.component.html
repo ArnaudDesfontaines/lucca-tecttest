@@ -1,0 +1,20 @@
+<mat-card class="card">
+    <mat-card-title>{{owner}}</mat-card-title>
+    <mat-card-content fxLayout="column" fxLayoutGap="10px" class="card-content">
+        <ng-container *ngFor="let message of chatMessages">
+            <app-message [fxLayoutAlign]="message.author === owner ? 'end center' : 'start center'"
+                [author]="message.author" [text]="message.text" [position]="message.author === owner ? 'right' : 'left'"
+                [color]="message.author === owner ? 'purple' : 'green'">
+            </app-message>
+        </ng-container>
+    </mat-card-content>
+    <mat-card-actions class="card-actions">
+        <input fxFlex="80" matInput type="text" placeholder="Entrez votre message" [(ngModel)]="value">
+        <button fxFlex="15" [ngClass]="{'notVisible': !value}" mat-button matSuffix mat-icon-button
+            (click)="sendMessage(value)">
+            <span class="material-icons">
+                send
+            </span>
+        </button>
+    </mat-card-actions>
+</mat-card>

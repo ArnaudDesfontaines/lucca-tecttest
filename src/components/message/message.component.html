@@ -1,0 +1,5 @@
+<div class="format" [ngClass]="{ 'purple': color === 'purple', 'green': color === 'green'}" fxLayout="column"
+    [fxLayoutAlign]="position === 'right' ? 'center end' : 'center start'" fxLayoutGap="5px">
+    <div> {{author}} dit:</div>
+    <div>{{text}}</div>
+</div>
